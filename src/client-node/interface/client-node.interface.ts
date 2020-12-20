@@ -1,10 +1,23 @@
-export interface NodeId {
+import { Observable } from 'rxjs'
+import { info } from 'console'
+
+export interface ProposeMessage {
   id: number
-  roundId: number
+  clientId: number // the target of the call
 }
 
-export interface Node {
-  id: number
-  reply: string
-  roundId: number
+export interface BroadcastMessage {
+  reply: string // the message "true" or "false"
+  info: ProposeMessage
+}
+
+export interface IRpcClientService {
+  rpcPropose(data: ProposeMessage): Observable<BroadcastMessage>
+  rpcBroadcastReply(data: BroadcastMessage): Observable<BroadcastMessage>
+}
+
+export interface IRpcClient {
+  nodeId: number
+  isTraitor: boolean
+  service: IRpcClientService
 }

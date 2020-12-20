@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package client_node;
+
+service RpcNodeService {
+  rpc rpcPropose (ProposeMessage) returns (ProposeMessage);
+  rpc rpcBroadcastReply (BroadcastMessage) returns (BroadcastMessage);
+}
+
+message EmptyRequest {}
+
+message ProposeMessage {
+  int32 id = 1;
+  int32 clientId = 2;
+}
+
+message BroadcastMessage {
+  string reply = 1;
+  ProposeMessage info = 2;
+}

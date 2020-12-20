@@ -14,7 +14,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5000`
     }
   },
@@ -23,7 +23,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5001`
     }
   },
@@ -32,7 +32,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5002`
     }
   },
@@ -41,7 +41,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5003`
     }
   },
@@ -50,7 +50,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5004`
     }
   },
@@ -59,7 +59,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5005`
     }
   },
@@ -68,7 +68,7 @@ export const clientOptions: ClientsModuleOptions = [
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, '../proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node.proto'),
       url: `localhost:5006`
     }
   }

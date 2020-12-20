@@ -13,7 +13,7 @@ async function bootstrap() {
     options: {
       url: `localhost:5000`,
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto')
+      protoPath: join(__dirname, './client-node/client-node.proto')
     }
   })
 
@@ -22,7 +22,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node/client-node.proto'),
       url: `localhost:5001`
     }
   })
@@ -32,7 +32,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node/client-node.proto'),
       url: `localhost:5002`
     }
   })
@@ -42,7 +42,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node/client-node.proto'),
       url: `localhost:5003`
     }
   })
@@ -52,7 +52,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node/client-node.proto'),
       url: `localhost:5004`
     }
   })
@@ -62,7 +62,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node/client-node.proto'),
       url: `localhost:5005`
     }
   })
@@ -72,7 +72,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       package: 'client_node',
-      protoPath: join(__dirname, './proto/client-node.proto'),
+      protoPath: join(__dirname, './client-node/client-node.proto'),
       url: `localhost:5006`
     }
   })

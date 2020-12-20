@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package client_node;
+
+service RpcNodeService {
+  rpc rpcPropose (NodeId) returns (Node);
+  rpc rpcBroadcastReply(Node) returns (Node);
+}
+
+message EmptyRequest {}
+
+message NodeId {
+  int32 id = 1;
+  int32 roundId = 2;
+}
+
+message Node {
+  int32 id = 1;
+  string reply = 2;
+   int32 roundId = 3;
+}

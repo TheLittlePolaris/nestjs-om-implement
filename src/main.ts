@@ -81,5 +81,9 @@ async function bootstrap() {
   await app.listen(process.env.PORT || 3000)
 
   console.log(`Node listening on ${await app.getUrl()}`)
+
+  process.on('exit', (code: number) => {
+    console.log('Process exited with code: ' + code)
+  })
 }
 bootstrap()

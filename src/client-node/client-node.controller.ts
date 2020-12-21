@@ -15,10 +15,6 @@ export class ClientNodeController implements OnModuleInit {
   // 7 nodes in the network
   public nodeIds = [0, 1, 2, 3, 4, 5, 6]
 
-  // private currentProposerId: number = 0 // 0->6
-
-  // private rpcClients: IRpcClient[] = []
-
   constructor(
     @Inject('client_node0') private readonly client0: ClientGrpcProxy,
     @Inject('client_node1') private readonly client1: ClientGrpcProxy,
@@ -28,9 +24,7 @@ export class ClientNodeController implements OnModuleInit {
     @Inject('client_node5') private readonly client5: ClientGrpcProxy,
     @Inject('client_node6') private readonly client6: ClientGrpcProxy,
     private clientNodeService: ClientNodeService
-  ) {
-    // console.log(client);
-  }
+  ) {}
 
   onModuleInit() {
     const clients = this.nodeIds.map((id) => ({
@@ -41,16 +35,7 @@ export class ClientNodeController implements OnModuleInit {
       )
     }))
 
-    this.clientNodeService.setClients(clients)
-    this.clientNodeService.propose()
-    // setTimeout(() => {
-    //   this.nodeIds.forEach((node) => {
-    //     if (node !== this.currentProposerId)
-    //       this.rpcClients[node].service
-    //         .rpcPropose({ id: this.currentProposerId, clientId: node })
-    //         .subscribe()
-    //   })
-    // }, 1500)
+    this.clientNodeService.setClients(clients, 5) // set ntraitors here
   }
 
   @GrpcMethod('RpcNodeService', 'rpcBroadcastReply')
@@ -60,7 +45,7 @@ export class ClientNodeController implements OnModuleInit {
     call: ServerUnaryCall<any>
   ) {
     //receive broadcastreply => save result
-    console.log(data, '<===== Data received')
+
     this.clientNodeService.processBroadcastMessage(data)
     return data
   }
@@ -71,23 +56,7 @@ export class ClientNodeController implements OnModuleInit {
     metadata: Metadata,
     call: ServerUnaryCall<any>
   ) {
-    console.log(data, '<====== data')
     this.clientNodeService.onReceivePropose(data)
-    // receive propose => broadcast reply
-    // const { id, clientId } = data
-    // const toBroadcastGroup = this.nodeIds.filter(
-    //   (node) => node !== id && node !== clientId
-    // )
-    // // console.log(toBroadcastGroup)
-    // toBroadcastGroup.map((nodeId) => {
-    //   this.rpcClients[nodeId].service
-    //     .rpcBroadcastReply({
-    //       reply: 'true',
-    //       info: { id: clientId, clientId: nodeId }
-    //     })
-    //     .pipe(take(1))
-    //     .subscribe()
-    // })
     return data
   }
 }
